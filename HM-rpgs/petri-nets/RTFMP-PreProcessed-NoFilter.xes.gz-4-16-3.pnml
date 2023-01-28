@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="pi8">
+        <name>
+          <text>pi8</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pi2">
+        <name>
+          <text>pi2</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="pi0">
+        <name>
+          <text>pi0</text>
+        </name>
+      </place>
+      <place id="pi1">
+        <name>
+          <text>pi1</text>
+        </name>
+      </place>
+      <place id="pi3">
+        <name>
+          <text>pi3</text>
+        </name>
+      </place>
+      <place id="pi4">
+        <name>
+          <text>pi4</text>
+        </name>
+      </place>
+      <place id="pi5">
+        <name>
+          <text>pi5</text>
+        </name>
+      </place>
+      <place id="pi6">
+        <name>
+          <text>pi6</text>
+        </name>
+      </place>
+      <place id="pi7">
+        <name>
+          <text>pi7</text>
+        </name>
+      </place>
+      <place id="pi9">
+        <name>
+          <text>pi9</text>
+        </name>
+      </place>
+      <transition id="silent-begin">
+        <name>
+          <text>silent-begin</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="10489460-7487-465d-9a8a-35229786f767"/>
+      </transition>
+      <transition id="Add penalty">
+        <name>
+          <text>Add penalty</text>
+        </name>
+      </transition>
+      <transition id="silent0">
+        <name>
+          <text>silent0</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="f8ef9ef4-45df-4e1d-a4d6-f090730ecf73"/>
+      </transition>
+      <transition id="Appeal to Judge">
+        <name>
+          <text>Appeal to Judge</text>
+        </name>
+      </transition>
+      <transition id="Create Fine">
+        <name>
+          <text>Create Fine</text>
+        </name>
+      </transition>
+      <transition id="Insert Date Appeal to Prefecture">
+        <name>
+          <text>Insert Date Appeal to Prefecture</text>
+        </name>
+      </transition>
+      <transition id="Insert Fine Notification">
+        <name>
+          <text>Insert Fine Notification</text>
+        </name>
+      </transition>
+      <transition id="Notify Result Appeal to Offender">
+        <name>
+          <text>Notify Result Appeal to Offender</text>
+        </name>
+      </transition>
+      <transition id="Payment">
+        <name>
+          <text>Payment</text>
+        </name>
+      </transition>
+      <transition id="Receive Result Appeal from Prefecture">
+        <name>
+          <text>Receive Result Appeal from Prefecture</text>
+        </name>
+      </transition>
+      <transition id="Send Appeal to Prefecture">
+        <name>
+          <text>Send Appeal to Prefecture</text>
+        </name>
+      </transition>
+      <transition id="Send Fine">
+        <name>
+          <text>Send Fine</text>
+        </name>
+      </transition>
+      <transition id="Send for Credit Collection">
+        <name>
+          <text>Send for Credit Collection</text>
+        </name>
+      </transition>
+      <transition id="silent-end">
+        <name>
+          <text>silent-end</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="9cc5b66a-f69b-44c7-be84-bf51cb922c80"/>
+      </transition>
+      <arc id="140099470837264" source="source" target="silent-begin"/>
+      <arc id="140099470846096" source="Appeal to Judge" target="pi2"/>
+      <arc id="140099470836880" source="silent-begin" target="pi0"/>
+      <arc id="140099470849168" source="Send for Credit Collection" target="pi7"/>
+      <arc id="140099470845328" source="Receive Result Appeal from Prefecture" target="pi8"/>
+      <arc id="140099470850704" source="pi7" target="silent-end"/>
+      <arc id="140099470842928" source="pi0" target="Create Fine"/>
+      <arc id="140099470850992" source="pi9" target="Insert Fine Notification"/>
+      <arc id="140099470836400" source="silent-end" target="sink"/>
+      <arc id="140099470846768" source="Create Fine" target="pi3"/>
+      <arc id="140099470847152" source="Insert Fine Notification" target="pi5"/>
+      <arc id="140099470846384" source="Payment" target="pi7"/>
+      <arc id="140099470839088" source="pi6" target="Add penalty"/>
+      <arc id="140099470849840" source="pi3" target="Send Fine"/>
+      <arc id="140099470850608" source="pi1" target="Send for Credit Collection"/>
+      <arc id="140099470917936" source="silent0" target="pi7"/>
+      <arc id="140099470844752" source="Send Fine" target="pi9"/>
+      <arc id="140099470847056" source="Insert Date Appeal to Prefecture" target="pi4"/>
+      <arc id="140099470847824" source="Notify Result Appeal to Offender" target="pi6"/>
+      <arc id="140099470850128" source="pi4" target="Appeal to Judge"/>
+      <arc id="140099470847440" source="pi5" target="Insert Date Appeal to Prefecture"/>
+      <arc id="140099470849360" source="pi2" target="Notify Result Appeal to Offender"/>
+      <arc id="140099470852048" source="pi6" target="Receive Result Appeal from Prefecture"/>
+      <arc id="140099470931280" source="pi9" target="silent0"/>
+      <arc id="140099470845424" source="Add penalty" target="pi1"/>
+      <arc id="140099470845040" source="Send Appeal to Prefecture" target="pi3"/>
+      <arc id="140099470848112" source="pi5" target="Payment"/>
+      <arc id="140099470847728" source="pi8" target="Send Appeal to Prefecture"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="pi1">
+        <name>
+          <text>pi1</text>
+        </name>
+      </place>
+      <place id="pi4">
+        <name>
+          <text>pi4</text>
+        </name>
+      </place>
+      <place id="pi5">
+        <name>
+          <text>pi5</text>
+        </name>
+      </place>
+      <place id="pi7">
+        <name>
+          <text>pi7</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pi0">
+        <name>
+          <text>pi0</text>
+        </name>
+      </place>
+      <place id="pi3">
+        <name>
+          <text>pi3</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="pi2">
+        <name>
+          <text>pi2</text>
+        </name>
+      </place>
+      <place id="pi6">
+        <name>
+          <text>pi6</text>
+        </name>
+      </place>
+      <place id="pi8">
+        <name>
+          <text>pi8</text>
+        </name>
+      </place>
+      <place id="pi10">
+        <name>
+          <text>pi10</text>
+        </name>
+      </place>
+      <transition id="Insert Date Appeal to Prefecture">
+        <name>
+          <text>Insert Date Appeal to Prefecture</text>
+        </name>
+      </transition>
+      <transition id="Add penalty">
+        <name>
+          <text>Add penalty</text>
+        </name>
+      </transition>
+      <transition id="Insert Fine Notification">
+        <name>
+          <text>Insert Fine Notification</text>
+        </name>
+      </transition>
+      <transition id="Notify Result Appeal to Offender">
+        <name>
+          <text>Notify Result Appeal to Offender</text>
+        </name>
+      </transition>
+      <transition id="Payment">
+        <name>
+          <text>Payment</text>
+        </name>
+      </transition>
+      <transition id="Send Fine">
+        <name>
+          <text>Send Fine</text>
+        </name>
+      </transition>
+      <transition id="Send for Credit Collection">
+        <name>
+          <text>Send for Credit Collection</text>
+        </name>
+      </transition>
+      <transition id="silent-end">
+        <name>
+          <text>silent-end</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="e72ad527-27a6-4159-a3a9-746bd1aa54f9"/>
+      </transition>
+      <transition id="silent0">
+        <name>
+          <text>silent0</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="8571beb0-86cf-4e1a-bb67-118c88b73990"/>
+      </transition>
+      <transition id="silent1">
+        <name>
+          <text>silent1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="84f49441-6af8-4877-832a-d1e412a96193"/>
+      </transition>
+      <transition id="silent-begin">
+        <name>
+          <text>silent-begin</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="225a55fe-02be-437f-8239-b0a28f71b8ac"/>
+      </transition>
+      <transition id="Appeal to Judge">
+        <name>
+          <text>Appeal to Judge</text>
+        </name>
+      </transition>
+      <transition id="Create Fine">
+        <name>
+          <text>Create Fine</text>
+        </name>
+      </transition>
+      <transition id="Receive Result Appeal from Prefecture">
+        <name>
+          <text>Receive Result Appeal from Prefecture</text>
+        </name>
+      </transition>
+      <transition id="Send Appeal to Prefecture">
+        <name>
+          <text>Send Appeal to Prefecture</text>
+        </name>
+      </transition>
+      <arc id="140099790852096" source="silent-begin" target="pi0"/>
+      <arc id="140099790853248" source="Create Fine" target="pi4"/>
+      <arc id="140099790850560" source="Payment" target="pi7"/>
+      <arc id="140099790855168" source="Send Appeal to Prefecture" target="pi8"/>
+      <arc id="140099790857088" source="Send Fine" target="pi3"/>
+      <arc id="140099790849408" source="pi7" target="Notify Result Appeal to Offender"/>
+      <arc id="140099790849552" source="silent-end" target="sink"/>
+      <arc id="140099790854928" source="Notify Result Appeal to Offender" target="pi6"/>
+      <arc id="140099790850704" source="Receive Result Appeal from Prefecture" target="pi6"/>
+      <arc id="140099790863376" source="pi1" target="Insert Date Appeal to Prefecture"/>
+      <arc id="140099790864144" source="pi8" target="Insert Fine Notification"/>
+      <arc id="140099790848400" source="pi7" target="Send Appeal to Prefecture"/>
+      <arc id="140099790799632" source="pi4" target="Send Fine"/>
+      <arc id="140099790800784" source="pi10" target="silent-end"/>
+      <arc id="140099790860064" source="Add penalty" target="pi1"/>
+      <arc id="140099790852000" source="Insert Fine Notification" target="pi5"/>
+      <arc id="140099790850464" source="silent1" target="pi3"/>
+      <arc id="140099790848160" source="pi2" target="Receive Result Appeal from Prefecture"/>
+      <arc id="140099790852144" source="source" target="silent-begin"/>
+      <arc id="140099790850608" source="Appeal to Judge" target="pi2"/>
+      <arc id="140099790859440" source="Send for Credit Collection" target="pi10"/>
+      <arc id="140099790851376" source="pi8" target="silent0"/>
+      <arc id="140099790800304" source="pi7" target="Send for Credit Collection"/>
+      <arc id="140099790863424" source="pi5" target="Add penalty"/>
+      <arc id="140099790859584" source="pi6" target="Appeal to Judge"/>
+      <arc id="140099790848832" source="pi2" target="silent1"/>
+      <arc id="140099790848448" source="pi3" target="Payment"/>
+      <arc id="140099790855504" source="silent0" target="pi6"/>
+      <arc id="140099790854496" source="Insert Date Appeal to Prefecture" target="pi4"/>
+      <arc id="140099790853872" source="pi0" target="Create Fine"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
