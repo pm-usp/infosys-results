@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pi1">
+        <name>
+          <text>pi1</text>
+        </name>
+      </place>
+      <place id="pi0">
+        <name>
+          <text>pi0</text>
+        </name>
+      </place>
+      <place id="pi2">
+        <name>
+          <text>pi2</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="pi4">
+        <name>
+          <text>pi4</text>
+        </name>
+      </place>
+      <place id="pi6">
+        <name>
+          <text>pi6</text>
+        </name>
+      </place>
+      <place id="pi5">
+        <name>
+          <text>pi5</text>
+        </name>
+      </place>
+      <place id="pi7">
+        <name>
+          <text>pi7</text>
+        </name>
+      </place>
+      <place id="pi9">
+        <name>
+          <text>pi9</text>
+        </name>
+      </place>
+      <transition id="silent-begin">
+        <name>
+          <text>silent-begin</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="a4b227bf-f652-42e9-b125-8eb961320952"/>
+      </transition>
+      <transition id="Unmatched">
+        <name>
+          <text>Unmatched</text>
+        </name>
+      </transition>
+      <transition id="Completed">
+        <name>
+          <text>Completed</text>
+        </name>
+      </transition>
+      <transition id="Accepted">
+        <name>
+          <text>Accepted</text>
+        </name>
+      </transition>
+      <transition id="Queued">
+        <name>
+          <text>Queued</text>
+        </name>
+      </transition>
+      <transition id="silent-end">
+        <name>
+          <text>silent-end</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="6daf908b-0565-4e28-bf55-98a3b89bf595"/>
+      </transition>
+      <transition id="silent0">
+        <name>
+          <text>silent0</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="f90b810b-23d0-4a55-89a6-a2bffc90fb10"/>
+      </transition>
+      <transition id="silent1">
+        <name>
+          <text>silent1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="91493fc2-ec64-41a6-89b6-a4bb0f37110f"/>
+      </transition>
+      <transition id="silent2">
+        <name>
+          <text>silent2</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="0b07af11-a68e-463d-915e-c29c95376776"/>
+      </transition>
+      <transition id="silent3">
+        <name>
+          <text>silent3</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="74512312-4b75-4d6b-9773-b36ff0d1c330"/>
+      </transition>
+      <transition id="silent4">
+        <name>
+          <text>silent4</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="03a3abbb-019f-4d06-a95a-2ed7f4c927a7"/>
+      </transition>
+      <arc id="140587552580624" source="Accepted" target="pi2"/>
+      <arc id="140587552576016" source="silent0" target="pi1"/>
+      <arc id="140587552584848" source="pi7" target="silent2"/>
+      <arc id="140587552578704" source="pi2" target="silent3"/>
+      <arc id="140587552572080" source="pi2" target="silent1"/>
+      <arc id="140587552585520" source="silent2" target="pi1"/>
+      <arc id="140587552577456" source="silent-begin" target="pi0"/>
+      <arc id="140587552581296" source="Completed" target="pi5"/>
+      <arc id="140587552581680" source="pi0" target="silent0"/>
+      <arc id="140587552583984" source="silent1" target="pi1"/>
+      <arc id="140587552587056" source="pi5" target="silent4"/>
+      <arc id="140587552582736" source="pi9" target="Queued"/>
+      <arc id="140587552577744" source="source" target="silent-begin"/>
+      <arc id="140587552575056" source="pi6" target="silent-end"/>
+      <arc id="140587552573424" source="pi4" target="Completed"/>
+      <arc id="140587552584560" source="pi0" target="Unmatched"/>
+      <arc id="140587552587632" source="silent-end" target="sink"/>
+      <arc id="140587552584944" source="Queued" target="pi7"/>
+      <arc id="140587552572272" source="Unmatched" target="pi9"/>
+      <arc id="140587552580336" source="pi1" target="Accepted"/>
+      <arc id="140587552576880" source="silent3" target="pi4"/>
+      <arc id="140587552574192" source="silent4" target="pi6"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
