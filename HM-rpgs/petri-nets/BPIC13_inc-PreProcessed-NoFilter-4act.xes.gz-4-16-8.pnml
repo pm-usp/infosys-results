@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pi2">
+        <name>
+          <text>pi2</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="pi0">
+        <name>
+          <text>pi0</text>
+        </name>
+      </place>
+      <place id="pi1">
+        <name>
+          <text>pi1</text>
+        </name>
+      </place>
+      <place id="pi3">
+        <name>
+          <text>pi3</text>
+        </name>
+      </place>
+      <place id="pi4">
+        <name>
+          <text>pi4</text>
+        </name>
+      </place>
+      <transition id="silent-begin">
+        <name>
+          <text>silent-begin</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="40bb930f-09c5-4f0f-a588-f75a890d09f7"/>
+      </transition>
+      <transition id="Completed">
+        <name>
+          <text>Completed</text>
+        </name>
+      </transition>
+      <transition id="Unmatched">
+        <name>
+          <text>Unmatched</text>
+        </name>
+      </transition>
+      <transition id="Accepted">
+        <name>
+          <text>Accepted</text>
+        </name>
+      </transition>
+      <transition id="Queued">
+        <name>
+          <text>Queued</text>
+        </name>
+      </transition>
+      <transition id="silent-end">
+        <name>
+          <text>silent-end</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="958866ea-0f25-48c6-a744-9752a442c473"/>
+      </transition>
+      <transition id="silent0">
+        <name>
+          <text>silent0</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="d831105b-0f6e-4edd-804e-638a826f6a95"/>
+      </transition>
+      <transition id="silent1">
+        <name>
+          <text>silent1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="2a715c79-61f7-453c-a44b-2cd63d42c8a7"/>
+      </transition>
+      <arc id="140100754715120" source="silent1" target="pi3"/>
+      <arc id="140100754704944" source="pi4" target="Unmatched"/>
+      <arc id="140100754717424" source="pi0" target="Completed"/>
+      <arc id="140100754715696" source="pi3" target="silent-end"/>
+      <arc id="140100754704080" source="source" target="silent-begin"/>
+      <arc id="140100754705712" source="silent-begin" target="pi0"/>
+      <arc id="140100754714064" source="Completed" target="pi4"/>
+      <arc id="140100754717328" source="silent-end" target="sink"/>
+      <arc id="140100754708976" source="Accepted" target="pi1"/>
+      <arc id="140100754715312" source="Queued" target="pi2"/>
+      <arc id="140100754716176" source="Unmatched" target="pi2"/>
+      <arc id="140100754707440" source="pi1" target="silent0"/>
+      <arc id="140100754713584" source="silent0" target="pi2"/>
+      <arc id="140100754711760" source="pi2" target="Accepted"/>
+      <arc id="140100754710608" source="pi1" target="silent1"/>
+      <arc id="140100754709840" source="pi1" target="Queued"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

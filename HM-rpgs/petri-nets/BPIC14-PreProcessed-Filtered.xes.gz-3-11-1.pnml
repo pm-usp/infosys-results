@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="pi2">
+        <name>
+          <text>pi2</text>
+        </name>
+      </place>
+      <place id="pi1">
+        <name>
+          <text>pi1</text>
+        </name>
+      </place>
+      <place id="pi0">
+        <name>
+          <text>pi0</text>
+        </name>
+      </place>
+      <place id="pi3">
+        <name>
+          <text>pi3</text>
+        </name>
+      </place>
+      <place id="pi4">
+        <name>
+          <text>pi4</text>
+        </name>
+      </place>
+      <place id="pi5">
+        <name>
+          <text>pi5</text>
+        </name>
+      </place>
+      <place id="pi6">
+        <name>
+          <text>pi6</text>
+        </name>
+      </place>
+      <place id="pi7">
+        <name>
+          <text>pi7</text>
+        </name>
+      </place>
+      <transition id="silent-begin">
+        <name>
+          <text>silent-begin</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="45128ab2-8fef-4f9a-91fb-1eca3db0b761"/>
+      </transition>
+      <transition id="Caused By CI">
+        <name>
+          <text>Caused By CI</text>
+        </name>
+      </transition>
+      <transition id="Open">
+        <name>
+          <text>Open</text>
+        </name>
+      </transition>
+      <transition id="Assignment">
+        <name>
+          <text>Assignment</text>
+        </name>
+      </transition>
+      <transition id="Closed">
+        <name>
+          <text>Closed</text>
+        </name>
+      </transition>
+      <transition id="Operator Update">
+        <name>
+          <text>Operator Update</text>
+        </name>
+      </transition>
+      <transition id="Quality Indicator Fixed">
+        <name>
+          <text>Quality Indicator Fixed</text>
+        </name>
+      </transition>
+      <transition id="Reassignment">
+        <name>
+          <text>Reassignment</text>
+        </name>
+      </transition>
+      <transition id="Status Change">
+        <name>
+          <text>Status Change</text>
+        </name>
+      </transition>
+      <transition id="Update">
+        <name>
+          <text>Update</text>
+        </name>
+      </transition>
+      <transition id="silent-end">
+        <name>
+          <text>silent-end</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c608343e-fcba-4f96-944a-8182d666c71b"/>
+      </transition>
+      <arc id="140566581511936" source="silent-end" target="sink"/>
+      <arc id="140566581515392" source="Assignment" target="pi1"/>
+      <arc id="140566581521920" source="pi5" target="Closed"/>
+      <arc id="140566581520000" source="pi1" target="Operator Update"/>
+      <arc id="140566581520384" source="pi3" target="silent-end"/>
+      <arc id="140566581517216" source="source" target="silent-begin"/>
+      <arc id="140566581520288" source="Caused By CI" target="pi2"/>
+      <arc id="140566581522208" source="Open" target="pi4"/>
+      <arc id="140566581519520" source="Operator Update" target="pi5"/>
+      <arc id="140566581526048" source="pi0" target="Open"/>
+      <arc id="140566581524128" source="Status Change" target="pi7"/>
+      <arc id="140566581514144" source="pi6" target="Assignment"/>
+      <arc id="140566581519424" source="Quality Indicator Fixed" target="pi3"/>
+      <arc id="140566581522496" source="pi4" target="Reassignment"/>
+      <arc id="140566581514048" source="Update" target="pi6"/>
+      <arc id="140566581510976" source="pi1" target="Status Change"/>
+      <arc id="140566581515968" source="pi7" target="Update"/>
+      <arc id="140566581520096" source="silent-begin" target="pi0"/>
+      <arc id="140566581523552" source="Closed" target="pi3"/>
+      <arc id="140566581518560" source="Reassignment" target="pi6"/>
+      <arc id="140566581516256" source="pi2" target="Quality Indicator Fixed"/>
+      <arc id="140566581519712" source="pi1" target="Caused By CI"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
