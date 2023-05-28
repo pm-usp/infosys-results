@@ -1,0 +1,3 @@
+These event logs are the ones originally used in the study by Augusto et al. (2019), who kindly provided them for use in our experiments. They are being made available here as well just for the purpose of making our experiment fully reproducible.
+
+A. Augusto, R. Conforti, M. Dumas, M. L. Rosa, A. Polyvyanyy, Split miner: automated discovery of accurate and simple business process models from event logs, Knowledge Information Systems 59 (2019) 251–284.
